@@ -25,6 +25,7 @@ public class Game {
     public void reset() {
         this.board = new Board();
         this.turn = new Turn(this.board);
+        this.state.reset();
 	}
 
     public void setUsers(int users) {
