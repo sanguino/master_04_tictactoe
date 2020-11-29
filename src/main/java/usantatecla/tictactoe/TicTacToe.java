@@ -7,27 +7,23 @@ import usantatecla.tictactoe.views.console.View;
 
 public abstract class TicTacToe {
 
-    private Game game;
-    private StartController startController;
-    private PlayController playController;
-    private ResumeController resumeController;
+    private Logic logic;
     private View view;
 
     protected TicTacToe() {
-        this.game = new Game();
-        this.startController = new StartController(this.game);
-        this.playController = new PlayController(this.game);
-        this.resumeController = new ResumeController(this.game);
+        this.logic = new Logic();
         this.view = this.createView();
     }
 
     protected abstract View createView();
 
     protected void play() {
+        AcceptorController controller;
         do {
-            this.view.interact(this.startController);
-            this.view.interact(this.playController);
-            this.view.interact(this.resumeController);
-        } while (true);
+            controller = this.logic.getController();
+            if (controller != null) {
+                this.view.interact(controller);
+            }
+        } while (controller != null);
     }
 }
