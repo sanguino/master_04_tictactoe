@@ -11,12 +11,14 @@ public class View extends usantatecla.tictactoe.views.View {
 	private ResumeView resumeView;
 
 	private StartController startController;
+	private ResumeController resumeController;
 
 	public View(StartController startController, PlayController playController, ResumeController resumeController) {
 		this.startController = startController;
+		this.resumeController = resumeController;
 		this.startView = new StartView();
 		this.playView = new PlayView(playController);
-		this.resumeView = new ResumeView(resumeController);
+		this.resumeView = new ResumeView();
 	}
 
 	@Override
@@ -31,6 +33,6 @@ public class View extends usantatecla.tictactoe.views.View {
 
 	@Override
 	public boolean isResumed(){
-		return this.resumeView.interact();
+		return this.resumeView.interact(this.resumeController);
 	}
 }
