@@ -25,8 +25,8 @@ public abstract class TicTacToe {
 
     protected void play() {
         do {
-            this.view.start(this.startController);
-            this.view.play(this.playController);
-        } while (this.view.isResumed(this.resumeController));
+            this.view.interact(this.startController);
+            this.view.interact(this.playController);
+        } while (this.view.interact(this.resumeController));
     }
 }

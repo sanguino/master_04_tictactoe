@@ -6,8 +6,8 @@ import usantatecla.tictactoe.controllers.StartController;
 
 public abstract class View {
 
-    public abstract void start(StartController startController);
-    public abstract void play(PlayController playController);
-    public abstract boolean isResumed(ResumeController resumeController);
+    public abstract void interact(StartController startController);
+    public abstract void interact(PlayController playController);
+    public abstract boolean interact(ResumeController resumeController);
 
 }
