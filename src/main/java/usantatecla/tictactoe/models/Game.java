@@ -19,7 +19,7 @@ public class Game {
     }
 
     public void next() {
-
+        this.state.next();
     }
 
     public void reset() {
