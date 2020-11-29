@@ -1,4 +1,4 @@
-package usantatecla.tictactoe.models;
+package usantatecla.tictactoe.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,9 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import usantatecla.tictactoe.controllers.Logic;
-import usantatecla.tictactoe.controllers.PlayController;
-import usantatecla.tictactoe.controllers.StartController;
+import usantatecla.tictactoe.models.Game;
 import usantatecla.tictactoe.types.StateValue;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
