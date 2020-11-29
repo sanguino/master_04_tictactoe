@@ -1,9 +1,6 @@
 package usantatecla.tictactoe.views.console;
 
-import usantatecla.tictactoe.controllers.ControllerVisitor;
-import usantatecla.tictactoe.controllers.PlayController;
-import usantatecla.tictactoe.controllers.ResumeController;
-import usantatecla.tictactoe.controllers.StartController;
+import usantatecla.tictactoe.controllers.*;
 
 public class View extends usantatecla.tictactoe.views.View implements ControllerVisitor {
 
@@ -18,18 +15,8 @@ public class View extends usantatecla.tictactoe.views.View implements Controller
 	}
 
 	@Override
-	public void interact(StartController startController){
-		this.startView.interact(startController);
-	}
-
-	@Override
-	public void interact(PlayController playController){
-		this.playView.interact(playController);
-	}
-
-	@Override
-	public boolean interact(ResumeController resumeController){
-		return this.resumeView.interact(resumeController);
+	public void interact(AcceptorController acceptorController){
+		acceptorController.accept(this);
 	}
 
 	@Override
