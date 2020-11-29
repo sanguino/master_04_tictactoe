@@ -12,4 +12,8 @@ public class ResumeController extends Controller implements AcceptorController{
     this.game.reset();
   }
 
+  @Override
+  public void accept(ControllerVisitor controllerVisitor) {
+
+  }
 }
