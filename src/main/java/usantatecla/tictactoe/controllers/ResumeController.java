@@ -8,8 +8,12 @@ public class ResumeController extends Controller implements AcceptorController{
     super(game);
   }
 
-  public void resume() {
-    this.game.reset();
+  public void resume(Boolean isResumed) {
+    if (isResumed) {
+      this.game.reset();
+    } else {
+      this.game.next();
+    }
   }
 
   @Override
