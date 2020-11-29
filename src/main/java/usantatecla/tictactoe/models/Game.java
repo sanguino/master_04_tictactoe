@@ -1,14 +1,21 @@
 package usantatecla.tictactoe.models;
 
 import usantatecla.tictactoe.types.Error;
+import usantatecla.tictactoe.types.StateValue;
 
 public class Game {
     
     private Board board;
     private Turn turn;
+    private State state;
     
     public Game() {
+        this.state = new State();
         this.reset();
+    }
+
+    public StateValue getValueState() {
+        return this.state.getValueState();
     }
 
     public void reset() {
