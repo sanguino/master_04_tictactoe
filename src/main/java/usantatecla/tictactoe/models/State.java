@@ -14,6 +14,10 @@ public class State {
         this.stateValue = StateValue.INITIAL;
     }
 
+    public void next() {
+
+    }
+
     public StateValue getValueState() {
         return this.stateValue;
     }

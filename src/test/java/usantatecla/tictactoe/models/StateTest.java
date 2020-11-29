@@ -20,5 +20,10 @@ public class StateTest {
         assertEquals(StateValue.INITIAL, this.state.getValueState());
     }
 
+    @Test
+    public void testGivenNewStateWhenDoNextAndGetValueStateThenIsInGame() {
+        this.state.next();
+        assertEquals(StateValue.IN_GAME, this.state.getValueState());
+    }
 
 }
