@@ -5,7 +5,7 @@ import usantatecla.tictactoe.types.Error;
 import usantatecla.tictactoe.models.Game;
 import usantatecla.tictactoe.models.Token;
 
-public class PlayController extends Controller {
+public class PlayController extends Controller implements AcceptorController{
 
 	public PlayController(Game game) {
 		super(game);

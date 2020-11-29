@@ -2,7 +2,7 @@ package usantatecla.tictactoe.controllers;
 
 import usantatecla.tictactoe.models.Game;
 
-public class ResumeController extends Controller {
+public class ResumeController extends Controller implements AcceptorController{
 
   public ResumeController(Game game) {
     super(game);
