@@ -28,11 +28,19 @@ public class PlayController extends Controller implements AcceptorController{
 	}
 
 	public Error put(Coordinate coordinate) {
-		return this.game.put(coordinate);
+		Error error = this.game.put(coordinate);
+		if (error.isNull() && this.game.isTicTacToe()) {
+			this.game.next();
+		}
+		return error;
 	}
 
 	public Error move(Coordinate origin, Coordinate target) {
-		return this.game.move(origin, target);
+		Error error = this.game.move(origin, target);
+		if (error.isNull() && this.game.isTicTacToe()) {
+			this.game.next();
+		}
+		return error;
 	}
 
 	@Override
