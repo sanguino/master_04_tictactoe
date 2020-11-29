@@ -21,7 +21,7 @@ public class Logic {
   }
 
   public Controller getController() {
-    return null;
+    return this.controllers.get(this.game.getValueState());
   }
 
 }
