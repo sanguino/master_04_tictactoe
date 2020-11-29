@@ -10,6 +10,7 @@ public class StartController extends Controller implements AcceptorController{
 
   public void setUsers(int users) {
     this.game.setUsers(users);
+    this.game.next();
   }
 
   public int getMaxPlayers() {
