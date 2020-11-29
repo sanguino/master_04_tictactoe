@@ -6,6 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import usantatecla.tictactoe.controllers.StartController;
 import usantatecla.tictactoe.models.Coordinate;
@@ -20,7 +21,6 @@ import static org.mockito.MockitoAnnotations.openMocks;
 @ExtendWith(MockitoExtension.class)
 public class StartViewTest {
 
-    @Mock
     private StartController startController;
 
     @InjectMocks
@@ -32,6 +32,7 @@ public class StartViewTest {
     @BeforeEach
     void before() {
         openMocks(this);
+        this.startController = Mockito.mock(StartController.class);
     }
 
     @Test
@@ -41,7 +42,7 @@ public class StartViewTest {
             when(this.startController.getMaxPlayers()).thenReturn(2);
             when(this.startController.getToken(any(Coordinate.class))).thenReturn(Token.X);
             console.when(Console::getInstance).thenReturn(this.console);
-            this.startView.interact();
+            this.startView.interact(this.startController);
             verify(this.console).writeln(Message.TITLE.toString());
             verify(this.startController).setUsers(1);
         }

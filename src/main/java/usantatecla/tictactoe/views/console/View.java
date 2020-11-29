@@ -10,15 +10,18 @@ public class View extends usantatecla.tictactoe.views.View {
 	private PlayView playView;
 	private ResumeView resumeView;
 
+	private StartController startController;
+
 	public View(StartController startController, PlayController playController, ResumeController resumeController) {
-		this.startView = new StartView(startController);
+		this.startController = startController;
+		this.startView = new StartView();
 		this.playView = new PlayView(playController);
 		this.resumeView = new ResumeView(resumeController);
 	}
 
 	@Override
 	public void start(){
-		this.startView.interact();
+		this.startView.interact(this.startController);
 	}
 
 	@Override

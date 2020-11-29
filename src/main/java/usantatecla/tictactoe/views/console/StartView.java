@@ -6,19 +6,11 @@ import usantatecla.utils.LimitedIntDialog;
 
 class StartView {
 
-	private StartController startController;
-
-	StartView(StartController startController) {
-		assert startController != null;
-		
-		this.startController = startController;
-	}
-
-	void interact() {
+	void interact(StartController startController) {
 		Message.TITLE.writeln();
 		int users = new LimitedIntDialog(0, 
-			this.startController.getMaxPlayers()).read(Message.NUMBER_PLAYERS.toString());
-		this.startController.setUsers(users);
+			startController.getMaxPlayers()).read(Message.NUMBER_PLAYERS.toString());
+		startController.setUsers(users);
 		new GameView(startController).write();
 	}
 
