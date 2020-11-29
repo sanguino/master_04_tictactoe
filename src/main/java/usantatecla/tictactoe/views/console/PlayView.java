@@ -9,11 +9,8 @@ class PlayView {
 
     private PlayController playController;
 
-    PlayView(PlayController playController) {
+    void interact(PlayController playController) {
         this.playController = playController;
-    }
-
-    void interact() {
         do {
             //this.playController.next();
             if (!this.playController.isBoardComplete()) {

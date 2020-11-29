@@ -6,8 +6,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import usantatecla.tictactoe.controllers.PlayController;
+import usantatecla.tictactoe.controllers.ResumeController;
 import usantatecla.tictactoe.models.Coordinate;
 import usantatecla.tictactoe.types.Error;
 import usantatecla.tictactoe.models.Token;
@@ -21,7 +23,6 @@ import static org.mockito.MockitoAnnotations.openMocks;
 @ExtendWith(MockitoExtension.class)
 public class PlayViewTest {
 
-    @Mock
     private PlayController playController;
 
     @InjectMocks
@@ -34,6 +35,7 @@ public class PlayViewTest {
     void before() {
         openMocks(this);
         this.playView = spy(this.playView);
+        this.playController = Mockito.mock(PlayController.class);
     }
 
     @Test
@@ -47,7 +49,7 @@ public class PlayViewTest {
             when(this.playController.isTicTacToe()).thenReturn(true);
             when(this.playController.getToken()).thenReturn(Token.X);
             console.when(Console::getInstance).thenReturn(this.console);
-            this.playView.interact();
+            this.playView.interact(this.playController);
             verify(this.playController).put(new Coordinate(0, 0));
             verify(this.console).writeln(Message.PLAYER_WIN.getMessage());
         }
@@ -65,7 +67,7 @@ public class PlayViewTest {
             when(this.playController.isTicTacToe()).thenReturn(true);
             when(this.playController.getToken()).thenReturn(Token.X);
             console.when(Console::getInstance).thenReturn(this.console);
-            this.playView.interact();
+            this.playView.interact(this.playController);
             verify(this.playController).put(coordinate);
             verify(this.console).writeln(Message.PLAYER_WIN.toString());
         }
@@ -82,7 +84,7 @@ public class PlayViewTest {
             when(this.playController.isTicTacToe()).thenReturn(true);
             when(this.playController.getToken()).thenReturn(Token.X);
             console.when(Console::getInstance).thenReturn(this.console);
-            this.playView.interact();
+            this.playView.interact(this.playController);
             verify(this.playController).move(new Coordinate(0, 0), new Coordinate(1, 1));
             verify(this.console).writeln(Message.PLAYER_WIN.toString());
         }
@@ -101,7 +103,7 @@ public class PlayViewTest {
             when(this.playController.isTicTacToe()).thenReturn(true);
             when(this.playController.getToken()).thenReturn(Token.X);
             console.when(Console::getInstance).thenReturn(this.console);
-            this.playView.interact();
+            this.playView.interact(this.playController);
             verify(this.playController).move(origin, target);
             verify(this.console).writeln(Message.PLAYER_WIN.toString());
         }
