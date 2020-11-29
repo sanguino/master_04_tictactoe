@@ -18,6 +18,10 @@ public class Game {
         return this.state.getValueState();
     }
 
+    public void next() {
+
+    }
+
     public void reset() {
         this.board = new Board();
         this.turn = new Turn(this.board);
