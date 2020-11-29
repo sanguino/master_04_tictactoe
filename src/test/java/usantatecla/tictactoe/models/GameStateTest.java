@@ -23,4 +23,12 @@ public class GameStateTest {
         assertEquals(StateValue.IN_GAME, game.getValueState());
     }
 
+    @Test
+    public void testGivenNewStateWhenDoNextAndResetAndGetValueStateThenIsInitial() {
+        Game game = new GameBuilder().build();
+        game.next();
+        game.reset();
+        assertEquals(StateValue.INITIAL, game.getValueState());
+    }
+
 }
