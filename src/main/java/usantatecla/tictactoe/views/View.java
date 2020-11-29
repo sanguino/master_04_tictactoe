@@ -2,15 +2,8 @@ package usantatecla.tictactoe.views;
 
 public abstract class View {
 
-    public void interact() {
-        do {
-            this.start();
-            this.play();
-        } while (this.isResumed());
-    }
-
-    protected abstract void start();
-    protected abstract void play();
-    protected abstract boolean isResumed();
+    public abstract void start();
+    public abstract void play();
+    public abstract boolean isResumed();
 
 }

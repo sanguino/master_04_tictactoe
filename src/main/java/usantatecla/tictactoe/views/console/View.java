@@ -17,17 +17,17 @@ public class View extends usantatecla.tictactoe.views.View {
 	}
 
 	@Override
-	protected void start(){
+	public void start(){
 		this.startView.interact();
 	}
 
 	@Override
-	protected void play(){
+	public void play(){
 		this.playView.interact();
 	}
 
 	@Override
-	protected boolean isResumed(){
+	public boolean isResumed(){
 		return this.resumeView.interact();
 	}
 }

@@ -1,9 +1,8 @@
 package usantatecla.tictactoe;
 
-import usantatecla.tictactoe.controllers.PlayController;
-import usantatecla.tictactoe.controllers.ResumeController;
-import usantatecla.tictactoe.controllers.StartController;
+import usantatecla.tictactoe.controllers.*;
 import usantatecla.tictactoe.models.Game;
+import usantatecla.tictactoe.types.StateValue;
 import usantatecla.tictactoe.views.console.View;
 
 public abstract class TicTacToe {
@@ -25,6 +24,9 @@ public abstract class TicTacToe {
     protected abstract View createView(StartController startController, PlayController playController, ResumeController resumeController2);
 
     protected void play() {
-        this.view.interact();
+        do {
+            this.view.start();
+            this.view.play();
+        } while (this.view.isResumed());
     }
 }
