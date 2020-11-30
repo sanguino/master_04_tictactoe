@@ -7,6 +7,7 @@ public class Session {
 
     private final State state;
     private final Game game;
+    private GameRegistry registry;
 
     public Session() {
         this.state = new State();
@@ -19,6 +20,7 @@ public class Session {
 
     public void setUsers(int i) {
         this.game.setUsers(i);
+        this.registry = new GameRegistry(this.game);
     }
 
     public Token getToken(Coordinate coordinate) {
