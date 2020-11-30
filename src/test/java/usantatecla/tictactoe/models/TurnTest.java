@@ -1,11 +1,13 @@
 package usantatecla.tictactoe.models;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import usantatecla.tictactoe.types.Error;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TurnTest {
 
@@ -45,5 +47,20 @@ public class TurnTest {
         assertThat(this.turn.getToken(), is(Token.X));
     }
 
+    @Test
+    public void testGivenTurnWhenCopyThenIsClone() {
+        this.turn.setUsers(2);
+        Turn cloned = this.turn.copy(this.board);
+
+        assertEquals(this.turn.getToken(), cloned.getToken());
+        assertEquals(this.turn.isUser(), cloned.isUser());
+
+        this.turn.setUsers(0);
+        this.turn.next();
+
+        assertNotEquals(this.turn.getToken(), cloned.getToken());
+        assertNotEquals(this.turn.isUser(), cloned.isUser());
+
+    }
 
 }

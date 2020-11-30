@@ -16,6 +16,10 @@ public class Turn {
 		this.board = board;
 	}
 
+	public Turn(Turn turn, Board board) {
+
+	}
+
 	void setUsers(int users) {
 		this.users = users;
 		this.board.reset();
@@ -24,6 +28,11 @@ public class Turn {
 			this.players[i] = new Player(Token.get(i), board);
 		}
 		this.active = 0;
+	}
+
+
+	public Turn copy(Board board) {
+		return new Turn(this, board);
 	}
 
 	void next() {
