@@ -24,6 +24,10 @@ public class Session {
         return this.game.getToken(coordinate);
     }
 
+    public Token getToken() {
+        return this.game.getToken();
+    }
+
     public boolean isBoardComplete() {
         return this.game.isBoardComplete();
     }
