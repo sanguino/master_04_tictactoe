@@ -29,6 +29,6 @@ public class Session {
     }
 
     public StateValue getValueState() {
-        return StateValue.EXIT;
+        return this.game.getValueState();
     }
 }
