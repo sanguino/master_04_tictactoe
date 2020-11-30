@@ -38,4 +38,8 @@ class GameRegistry {
         return this.firstPrevious < this.mementos.size() - 1;
     }
 
+    boolean isRedoable() {
+        return false;
+    }
+
 }

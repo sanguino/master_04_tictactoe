@@ -37,6 +37,13 @@ public class GameRegistryTest {
     }
 
     @Test
+    void testGivenGameRegistryWhenRegistryAndUndoAndIsRedoableThenFalse() {
+        this.registry.register();
+        this.registry.undo();
+        assertTrue(this.registry.isRedoable());
+    }
+
+    @Test
     void testGivenGameRegistryWhenRegistryAndUndoAndRedoAndIsUndoableThenFalse() {
         this.registry.register();
         this.registry.undo();
