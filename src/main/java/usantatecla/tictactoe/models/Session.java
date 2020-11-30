@@ -43,4 +43,7 @@ public class Session {
     public void reset() {
         this.game.reset();
     }
+
+    public void put(Coordinate coordinate) {
+    }
 }

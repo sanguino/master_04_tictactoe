@@ -54,4 +54,13 @@ public class SessionTest {
         assertEquals(StateValue.INITIAL, this.session.getValueState());
     }
 
+    @Test
+    public void testGivenSessionWhenPutMainDiagonalTokensThenTrue(){
+        this.session.setUsers(0);
+        assertEquals(Token.X, this.session.getToken());
+        this.session.put(new Coordinate(0,0));
+        assertEquals(Token.O, this.session.getToken());
+
+    }
+
 }
