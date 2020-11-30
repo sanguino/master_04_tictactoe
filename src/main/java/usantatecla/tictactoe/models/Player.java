@@ -16,7 +16,7 @@ class Player {
 	}
 
 	public Player copy(Board board) {
-		return null;
+		return new Player(this.token, board);
 	}
 
 	Error put(Coordinate coordinate) {
