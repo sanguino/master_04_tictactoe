@@ -76,4 +76,8 @@ public class Session {
         return this.registry.isUndoable();
     }
 
+    public boolean redoable() {
+        return true;
+    }
+
 }
