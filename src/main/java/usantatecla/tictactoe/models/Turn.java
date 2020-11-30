@@ -66,6 +66,6 @@ public class Turn {
 	}
 
 	void set(int active){
-
+		this.active = active;
 	}
 }
