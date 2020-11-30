@@ -28,4 +28,11 @@ public class GameRegistryTest {
         this.registry.register();
         assertTrue(this.registry.isUndoable());
     }
+
+    @Test
+    void testGivenGameRegistryWhenRegistryAndUndoAndIsUndoableThenFalse() {
+        this.registry.register();
+        this.registry.undo();
+        assertFalse(this.registry.isUndoable());
+    }
 }
