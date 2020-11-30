@@ -1,44 +1,44 @@
 package usantatecla.tictactoe.controllers;
 
 import usantatecla.tictactoe.models.Coordinate;
-import usantatecla.tictactoe.types.Error;
-import usantatecla.tictactoe.models.Game;
+import usantatecla.tictactoe.models.Session;
 import usantatecla.tictactoe.models.Token;
+import usantatecla.tictactoe.types.Error;
 
 public class PlayController extends Controller implements AcceptorController{
 
-	public PlayController(Game game) {
-		super(game);
+	public PlayController(Session session) {
+		super(session);
 	}
 
 	public boolean isBoardComplete() {
-		return this.game.isBoardComplete();
+		return this.session.isBoardComplete();
 	}
 
 	public boolean isTicTacToe() {
-		return this.game.isTicTacToe();
+		return this.session.isTicTacToe();
 	}
 
 	public Token getToken() {
-		return this.game.getToken();
+		return this.session.getToken();
 	}
 
 	public boolean isUser() {
-		return this.game.isUser();
+		return this.session.isUser();
 	}
 
 	public Error put(Coordinate coordinate) {
-		Error error = this.game.put(coordinate);
-		if (error.isNull() && this.game.isTicTacToe()) {
-			this.game.next();
+		Error error = this.session.put(coordinate);
+		if (error.isNull() && this.session.isTicTacToe()) {
+			this.session.next();
 		}
 		return error;
 	}
 
 	public Error move(Coordinate origin, Coordinate target) {
-		Error error = this.game.move(origin, target);
-		if (error.isNull() && this.game.isTicTacToe()) {
-			this.game.next();
+		Error error = this.session.move(origin, target);
+		if (error.isNull() && this.session.isTicTacToe()) {
+			this.session.next();
 		}
 		return error;
 	}

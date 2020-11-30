@@ -1,18 +1,18 @@
 package usantatecla.tictactoe.controllers;
 
-import usantatecla.tictactoe.models.Game;
+import usantatecla.tictactoe.models.Session;
 
 public class ResumeController extends Controller implements AcceptorController{
 
-  public ResumeController(Game game) {
-    super(game);
+  public ResumeController(Session session) {
+    super(session);
   }
 
   public void resume(Boolean isResumed) {
     if (isResumed) {
-      this.game.reset();
+      this.session.reset();
     } else {
-      this.game.next();
+      this.session.next();
     }
   }
 

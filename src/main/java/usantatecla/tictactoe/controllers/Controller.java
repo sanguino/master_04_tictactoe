@@ -1,19 +1,19 @@
 package usantatecla.tictactoe.controllers;
 
 import usantatecla.tictactoe.models.Coordinate;
-import usantatecla.tictactoe.models.Game;
+import usantatecla.tictactoe.models.Session;
 import usantatecla.tictactoe.models.Token;
 
 public abstract class Controller {
     
-    protected Game game;
+    protected Session session;
 
-	Controller(Game game) {
-		this.game = game;
+	Controller(Session session) {
+		this.session = session;
   }
 
 	public Token getToken(Coordinate coordinate) {
-		return this.game.getToken(coordinate);
+		return this.session.getToken(coordinate);
 	}
   
 }
