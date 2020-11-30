@@ -101,4 +101,13 @@ public class SessionTest {
         assertFalse(this.session.redoable());
     }
 
+    @Test
+    public void testGivenSessionWhenPutThenRegistryAndUndoIsUndoableFalse() {
+        this.session.setUsers(2);
+        this.session.put(new Coordinate(0,0));
+        this.session.undo();
+        assertFalse(this.session.undoable());
+    }
+
+
 }
