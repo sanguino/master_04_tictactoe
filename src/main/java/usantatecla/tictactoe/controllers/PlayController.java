@@ -42,6 +42,22 @@ public class PlayController extends Controller implements AcceptorController{
 		return this.actionController.move(origin, target);
 	}
 
+	public void undo() {
+		this.undoController.undo();
+	}
+
+	public boolean undoable() {
+		return this.undoController.undoable();
+	}
+
+	public void redo() {
+		this.redoController.redo();
+	}
+
+	public boolean redoable() {
+		return this.redoController.redoable();
+	}
+
 	@Override
 	public void accept(ControllerVisitor controllerVisitor) {
 		controllerVisitor.visit(this);
