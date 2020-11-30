@@ -53,6 +53,6 @@ public class Session {
     }
 
     public boolean isUser() {
-        return false;
+        return this.game.isUser();
     }
 }
