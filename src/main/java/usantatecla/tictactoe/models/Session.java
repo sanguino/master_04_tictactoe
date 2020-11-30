@@ -84,7 +84,7 @@ public class Session {
     }
 
     public void redo() {
-
+        this.registry.redo();
     }
 
     public boolean redoable() {
