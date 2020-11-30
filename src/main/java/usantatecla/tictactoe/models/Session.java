@@ -67,7 +67,7 @@ public class Session {
     }
 
     public boolean undoable() {
-        return true;
+        return this.registry.isUndoable();
     }
 
 }
