@@ -39,7 +39,7 @@ class GameRegistry {
     }
 
     boolean isRedoable() {
-        return false;
+        return this.firstPrevious >= 1;
     }
 
 }
