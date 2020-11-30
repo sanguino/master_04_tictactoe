@@ -49,6 +49,6 @@ public class Session {
     }
 
     public boolean isTicTacToe() {
-        return false;
+        return this.game.isTicTacToe();
     }
 }
