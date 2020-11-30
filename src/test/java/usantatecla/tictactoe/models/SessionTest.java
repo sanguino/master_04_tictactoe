@@ -77,7 +77,7 @@ public class SessionTest {
         this.session.setUsers(2);
         this.session.put(new Coordinate(0,0));
         this.session.put(new Coordinate(0,1));
-        Error error = this.session.move(new Coordinate(0,1), new Coordinate(0,2));
+        Error error = this.session.move(new Coordinate(0,0), new Coordinate(0,2));
         assertEquals(error, Error.NULL );
     }
 

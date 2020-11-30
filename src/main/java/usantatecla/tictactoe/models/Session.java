@@ -49,8 +49,9 @@ public class Session {
         this.game.put(coordinate);
     }
 
-    public Error move(Coordinate coordinate, Coordinate coordinate1) {
-        return Error.SAME_COORDINATES;
+    public Error move(Coordinate origin, Coordinate target) {
+        Error error = this.game.move(origin, target);
+        return error;
     }
 
     public boolean isTicTacToe() {
