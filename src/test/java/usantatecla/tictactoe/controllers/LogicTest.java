@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import usantatecla.tictactoe.models.Game;
+import usantatecla.tictactoe.models.Session;
 import usantatecla.tictactoe.types.StateValue;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
@@ -18,7 +19,7 @@ import static org.mockito.MockitoAnnotations.openMocks;
 public class LogicTest {
 
     @Mock
-    private Game game;
+    private Session session;
 
     @InjectMocks
     private Logic logic;
@@ -30,13 +31,13 @@ public class LogicTest {
 
     @Test
     public void testGivenNewLogicWhenGetControllerThenIsStartController() {
-        when(this.game.getValueState()).thenReturn(StateValue.INITIAL);
+        when(this.session.getValueState()).thenReturn(StateValue.INITIAL);
         assertThat(this.logic.getController(), instanceOf(StartController.class));
     }
 
     @Test
     public void testGivenNewLogicWhenGameNextAndGetControllerThenIsPlayController() {
-        when(this.game.getValueState()).thenReturn(StateValue.IN_GAME);
+        when(this.session.getValueState()).thenReturn(StateValue.IN_GAME);
         assertThat(logic.getController(), instanceOf(PlayController.class));
     }
 

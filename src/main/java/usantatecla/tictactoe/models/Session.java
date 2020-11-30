@@ -34,15 +34,16 @@ public class Session {
     }
 
     public StateValue getValueState() {
-        return this.game.getValueState();
+        return this.state.getValueState();
     }
 
     public void next() {
-        this.game.next();
+        this.state.next();
     }
 
     public void reset() {
         this.game.reset();
+        this.state.reset();
     }
 
     public Error put(Coordinate coordinate) {

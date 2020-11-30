@@ -7,25 +7,14 @@ public class Game {
     
     private Board board;
     private Turn turn;
-    private State state;
     
     public Game() {
-        this.state = new State();
         this.reset();
-    }
-
-    public StateValue getValueState() {
-        return this.state.getValueState();
-    }
-
-    public void next() {
-        this.state.next();
     }
 
     public void reset() {
         this.board = new Board();
         this.turn = new Turn(this.board);
-        this.state.reset();
 	}
 
     public void setUsers(int users) {
