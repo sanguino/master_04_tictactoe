@@ -68,7 +68,7 @@ public class SessionTest {
         assertEquals(Token.X, this.session.getToken());
         this.session.put(new Coordinate(2,2));
         assertEquals(Token.X, this.session.getToken());
-
+        assertTrue(this.session.isTicTacToe());
     }
 
 }
