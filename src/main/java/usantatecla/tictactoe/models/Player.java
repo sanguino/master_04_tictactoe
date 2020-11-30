@@ -15,6 +15,10 @@ class Player {
 		this.board = board;
 	}
 
+	public Player copy(Board board) {
+		return null;
+	}
+
 	Error put(Coordinate coordinate) {
 		if (!this.board.isEmpty(coordinate)) {
 			return Error.NOT_EMPTY;

@@ -1,11 +1,13 @@
 package usantatecla.tictactoe.models;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import usantatecla.tictactoe.types.Error;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
 
@@ -62,5 +64,12 @@ public class PlayerTest {
     void testGivenXTokenPlayerWhenGetTokenThenIsXToken() {
         assertThat(this.player.getToken(), is(Token.X));
     }
+
+    @Test
+    void testGivenPlayerWhenCopyThenIsClone() {
+        Player clone = this.player.copy(this.board);
+        assertEquals(this.player.getToken(), clone.getToken());
+    }
+
 
 }
