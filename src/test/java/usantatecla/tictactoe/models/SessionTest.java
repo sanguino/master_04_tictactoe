@@ -42,4 +42,16 @@ public class SessionTest {
         assertEquals(StateValue.EXIT, this.session.getValueState());
     }
 
+    @Test
+    public void testGivenSessionWhenResetThenInitial() {
+        this.session.setUsers(1);
+        assertEquals(StateValue.INITIAL, this.session.getValueState());
+        this.session.next();
+        assertEquals(StateValue.IN_GAME, this.session.getValueState());
+        this.session.next();
+        assertEquals(StateValue.RESUME, this.session.getValueState());
+        this.session.reset();
+        assertEquals(StateValue.INITIAL, this.session.getValueState());
+    }
+
 }

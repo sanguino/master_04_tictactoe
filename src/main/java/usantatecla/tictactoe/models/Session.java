@@ -35,4 +35,7 @@ public class Session {
     public void next() {
         this.game.next();
     }
+
+    public void reset() {
+    }
 }
