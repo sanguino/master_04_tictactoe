@@ -6,8 +6,8 @@ class GameMemento {
   private Board board;
 
   GameMemento(Turn turn, Board board) {
-    this.board = board;
-    this.turn = turn;
+    this.board = board.copy();
+    this.turn = turn.copy(this.board);
   }
 
   Board getBoard() {
