@@ -25,7 +25,8 @@ class GameRegistry {
     }
 
     void undo() {
-
+        this.firstPrevious++;
+        this.game.set(this.mementos.get(this.firstPrevious));
     }
 
     void redo() {
