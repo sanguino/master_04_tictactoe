@@ -30,7 +30,8 @@ class GameRegistry {
     }
 
     void redo() {
-
+        this.firstPrevious--;
+        this.game.set(this.mementos.get(this.firstPrevious));
     }
 
     boolean isUndoable() {
