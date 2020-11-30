@@ -45,5 +45,6 @@ public class Session {
     }
 
     public void put(Coordinate coordinate) {
+        this.game.put(coordinate);
     }
 }
