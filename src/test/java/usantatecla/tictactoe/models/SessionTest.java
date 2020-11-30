@@ -25,6 +25,8 @@ public class SessionTest {
                 assertEquals(Token.NULL, this.session.getToken(new Coordinate(i, j)));
             }
         }
+
+        assertFalse(this.session.isBoardComplete());
     }
 
 }
