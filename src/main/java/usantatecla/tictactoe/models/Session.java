@@ -11,7 +11,7 @@ public class Session {
     }
 
     public int getMaxPlayers() {
-        return 0;
+        return this.game.getMaxPlayers();
     }
 
     public void setUsers(int i) {
