@@ -31,4 +31,7 @@ public class Session {
     public StateValue getValueState() {
         return this.game.getValueState();
     }
+
+    public void next() {
+    }
 }
