@@ -23,6 +23,6 @@ public class Session {
     }
 
     public boolean isBoardComplete() {
-        return true;
+        return this.game.isBoardComplete();
     }
 }
