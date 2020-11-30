@@ -1,5 +1,7 @@
 package usantatecla.tictactoe.models;
 
+import usantatecla.tictactoe.types.StateValue;
+
 public class Session {
 
     private final State state;
@@ -24,5 +26,9 @@ public class Session {
 
     public boolean isBoardComplete() {
         return this.game.isBoardComplete();
+    }
+
+    public StateValue getValueState() {
+        return StateValue.EXIT;
     }
 }

@@ -3,6 +3,7 @@ package usantatecla.tictactoe.models;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import usantatecla.tictactoe.types.StateValue;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,6 +28,12 @@ public class SessionTest {
         }
 
         assertFalse(this.session.isBoardComplete());
+    }
+
+    @Test
+    public void testGivenSessionWhenMultiplyNextThenExit() {
+        this.session.setUsers(1);
+        assertEquals(StateValue.INITIAL, this.session.getValueState());
     }
 
 }
