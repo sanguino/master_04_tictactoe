@@ -13,4 +13,7 @@ public class Session {
     public int getMaxPlayers() {
         return 0;
     }
+
+    public void setUsers(int i) {
+    }
 }

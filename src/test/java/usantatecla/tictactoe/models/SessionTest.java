@@ -17,6 +17,7 @@ public class SessionTest {
 
     @Test
     public void testGivenSessionWhenBornThenInitialValues() {
+        this.session.setUsers(2);
         assertEquals(2, this.session.getMaxPlayers());
     }
 
