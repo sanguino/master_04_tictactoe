@@ -87,4 +87,11 @@ public class SessionTest {
         assertTrue(this.session.isUser());
     }
 
+    @Test
+    public void testGivenSessionWhenPutThenRegistryIsUndoable() {
+        this.session.setUsers(2);
+        this.session.put(new Coordinate(0,0));
+        assertTrue(this.session.undoable());
+    }
+
 }
