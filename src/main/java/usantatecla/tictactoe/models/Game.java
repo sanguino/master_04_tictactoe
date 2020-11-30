@@ -78,4 +78,7 @@ public class Game {
         return new GameMemento(this.turn, this.board);
     }
 
+    public void set(GameMemento memento) {
+
+    }
 }

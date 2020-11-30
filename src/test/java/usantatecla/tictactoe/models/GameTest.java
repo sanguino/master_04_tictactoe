@@ -191,4 +191,17 @@ public class GameTest {
         assertThat(game.equals(game), is(true));
     }
 
+    @Test
+    void testGivenGameWhenSetMementoIsXToken() {
+        Game game = new GameBuilder().rows("X  ",
+                                           "O  ",
+                                           "   ").build();
+
+        GameMemento gameMemento = game.createMemento();
+        game.move(new Coordinate(0, 0), new Coordinate(0, 1));
+        assertThat(game.getToken(new Coordinate(0, 0)), is(Token.NULL));
+        game.set(gameMemento);
+        assertThat(game.getToken(new Coordinate(0, 0)), is(Token.X));
+    }
+
 }
