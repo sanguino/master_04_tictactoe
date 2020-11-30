@@ -74,4 +74,8 @@ public class Game {
 		return Turn.NUMBER_PLAYERS;
 	}
 
+    public GameMemento createMemento() {
+        return new GameMemento(this.turn, this.board);
+    }
+
 }
