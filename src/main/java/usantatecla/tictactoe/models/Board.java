@@ -12,6 +12,14 @@ class Board {
 	public Board(){
 		this.reset();
 	}
+
+	private Board(Board board) {
+
+	}
+
+	Board copy() {
+		return new Board(this);
+	}
 	
 	void reset() {
 		this.tokens = new Token[Coordinate.DIMENSION][Coordinate.DIMENSION];

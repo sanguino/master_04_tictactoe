@@ -88,4 +88,10 @@ public class BoardTest {
         assertThat(this.board.isTicTacToe(Token.X), is(true));
     }
 
+    @Test
+    void testGivenBoardWhenCopyThenIsClone() {
+        this.board.put(new Coordinate(0, 1), Token.X);
+        Board clone = this.board.copy();
+        assertThat(clone.getToken(new Coordinate(0, 1)), is(Token.X));
+    }
 }
