@@ -65,5 +65,7 @@ public class Turn {
 		return this.getPlayer().getToken();
 	}
 
+	void set(int active){
 
+	}
 }

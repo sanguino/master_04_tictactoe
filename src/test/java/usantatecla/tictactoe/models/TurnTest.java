@@ -63,4 +63,15 @@ public class TurnTest {
 
     }
 
+    @Test
+    public void testGivenTurnWhenSetThenActiveIsOk() {
+        this.turn.setUsers(2);
+        this.turn.next();
+        Token currentToken = this.turn.getToken();
+        this.turn.setUsers(0);
+
+        assertNotEquals(currentToken, this.turn.getToken());
+
+    }
+
 }
