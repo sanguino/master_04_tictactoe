@@ -17,7 +17,13 @@ public class Turn {
 	}
 
 	public Turn(Turn turn, Board board) {
-
+		this.players = new Player[Turn.NUMBER_PLAYERS];
+		for (int i = 0; i < Turn.NUMBER_PLAYERS; i++) {
+			this.players[i] = turn.players[i].copy(board);
+		}
+		this.board = board;
+		this.active = turn.active;
+		this.users = turn.users;
 	}
 
 	void setUsers(int users) {
