@@ -45,8 +45,9 @@ public class Session {
         this.game.reset();
     }
 
-    public void put(Coordinate coordinate) {
-        this.game.put(coordinate);
+    public Error put(Coordinate coordinate) {
+        Error error = this.game.put(coordinate);
+        return error;
     }
 
     public Error move(Coordinate origin, Coordinate target) {
