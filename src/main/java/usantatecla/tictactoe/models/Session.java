@@ -66,4 +66,8 @@ public class Session {
         return this.game.isUser();
     }
 
+    public boolean undoable() {
+        return true;
+    }
+
 }
