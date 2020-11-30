@@ -18,8 +18,7 @@ public class Session {
         this.game.setUsers(i);
     }
 
-
     public Token getToken(Coordinate coordinate) {
-        return Token.X;
+        return this.game.getToken(coordinate);
     }
 }
