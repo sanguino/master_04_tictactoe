@@ -37,5 +37,6 @@ public class Session {
     }
 
     public void reset() {
+        this.game.reset();
     }
 }
