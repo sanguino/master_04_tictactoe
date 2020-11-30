@@ -3,6 +3,7 @@ package usantatecla.tictactoe.models;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import usantatecla.tictactoe.types.Error;
 import usantatecla.tictactoe.types.StateValue;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -69,6 +70,15 @@ public class SessionTest {
         this.session.put(new Coordinate(2,2));
         assertEquals(Token.X, this.session.getToken());
         assertTrue(this.session.isTicTacToe());
+    }
+
+    @Test
+    public void testGivenSessionWhenMoveThenErrorNull(){
+        this.session.setUsers(2);
+        this.session.put(new Coordinate(0,0));
+        this.session.put(new Coordinate(0,1));
+        Error error = this.session.move(new Coordinate(0,1), new Coordinate(0,2));
+        assertEquals(error, Error.NULL );
     }
 
     @Test

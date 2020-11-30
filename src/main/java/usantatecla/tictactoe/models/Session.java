@@ -1,5 +1,6 @@
 package usantatecla.tictactoe.models;
 
+import usantatecla.tictactoe.types.Error;
 import usantatecla.tictactoe.types.StateValue;
 
 public class Session {
@@ -48,6 +49,10 @@ public class Session {
         this.game.put(coordinate);
     }
 
+    public Error move(Coordinate coordinate, Coordinate coordinate1) {
+        return Error.SAME_COORDINATES;
+    }
+
     public boolean isTicTacToe() {
         return this.game.isTicTacToe();
     }
@@ -55,4 +60,5 @@ public class Session {
     public boolean isUser() {
         return this.game.isUser();
     }
+
 }
