@@ -60,6 +60,14 @@ public class SessionTest {
         assertEquals(Token.X, this.session.getToken());
         this.session.put(new Coordinate(0,0));
         assertEquals(Token.O, this.session.getToken());
+        this.session.put(new Coordinate(0,1));
+        assertEquals(Token.X, this.session.getToken());
+        this.session.put(new Coordinate(1,1));
+        assertEquals(Token.O, this.session.getToken());
+        this.session.put(new Coordinate(1,2));
+        assertEquals(Token.X, this.session.getToken());
+        this.session.put(new Coordinate(2,2));
+        assertEquals(Token.X, this.session.getToken());
 
     }
 
