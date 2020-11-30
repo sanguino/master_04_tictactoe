@@ -83,6 +83,10 @@ public class Session {
         return this.registry.isUndoable();
     }
 
+    public void redo() {
+
+    }
+
     public boolean redoable() {
         return this.registry.isRedoable();
     }
