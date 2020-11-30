@@ -15,5 +15,6 @@ public class Session {
     }
 
     public void setUsers(int i) {
+        this.game.setUsers(i);
     }
 }
