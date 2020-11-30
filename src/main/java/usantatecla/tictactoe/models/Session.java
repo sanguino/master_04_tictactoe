@@ -73,7 +73,10 @@ public class Session {
     }
 
     public void undo() {
-
+        this.registry.undo();
+        if (!this.game.isUser()){
+            this.registry.undo();
+        }
     }
 
     public boolean undoable() {
