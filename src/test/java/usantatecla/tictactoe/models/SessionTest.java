@@ -19,6 +19,12 @@ public class SessionTest {
     public void testGivenSessionWhenBornThenInitialValues() {
         this.session.setUsers(2);
         assertEquals(2, this.session.getMaxPlayers());
+
+        for (int i = 0; i < Coordinate.DIMENSION; i++) {
+            for (int j = 0; j < Coordinate.DIMENSION; j++) {
+                assertEquals(Token.NULL, this.session.getToken(new Coordinate(i, j)));
+            }
+        }
     }
 
 }
