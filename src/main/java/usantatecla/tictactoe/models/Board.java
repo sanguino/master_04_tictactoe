@@ -14,7 +14,14 @@ class Board {
 	}
 
 	private Board(Board board) {
+		this();
+		assert board != null;
 
+		for (int i = 0; i < Coordinate.DIMENSION; i++) {
+			for (int j = 0; j < Coordinate.DIMENSION; j++) {
+				this.tokens[i][j] = board.tokens[i][j];
+			}
+		}
 	}
 
 	Board copy() {
