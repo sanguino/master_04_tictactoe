@@ -29,7 +29,7 @@ class GameRegistry {
     }
 
     boolean isUndoable() {
-        return false;
+        return this.firstPrevious < this.mementos.size() - 1;
     }
 
 }
