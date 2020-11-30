@@ -71,4 +71,10 @@ public class SessionTest {
         assertTrue(this.session.isTicTacToe());
     }
 
+    @Test
+    public void testGivenSessionWhenIsUserThenTrue() {
+        this.session.setUsers(2);
+        assertTrue(this.session.isUser());
+    }
+
 }

@@ -51,4 +51,8 @@ public class Session {
     public boolean isTicTacToe() {
         return this.game.isTicTacToe();
     }
+
+    public boolean isUser() {
+        return false;
+    }
 }
