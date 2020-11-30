@@ -17,7 +17,11 @@ class GameRegistry {
     }
 
     void register() {
-
+        for (int i = 0; i < this.firstPrevious; i++) {
+            this.mementos.remove(0);
+            this.firstPrevious--;
+        }
+        this.mementos.add(this.firstPrevious, this.game.createMemento());
     }
 
     void undo() {
