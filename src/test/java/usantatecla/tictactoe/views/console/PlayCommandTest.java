@@ -58,5 +58,15 @@ public class PlayCommandTest {
         verify(this.playController).move(origin, target);
     }
 
+    @Test
+    void testGivenPlayCommandWhenIsTicTacToeThenShowWinner() {
+        when(this.playController.isTicTacToe()).thenReturn(true);
+        doNothing().when(this.playCommand).showWinner();
+        when(this.playController.put(any(Coordinate.class))).thenReturn(Error.NULL);
+        doReturn(new Coordinate(0,0)).when(this.playCommand).readCoordinate(anyString());
+        this.playCommand.execute();
+        verify(this.playCommand).showWinner();
+    }
+
 
 }
