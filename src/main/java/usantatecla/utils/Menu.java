@@ -28,6 +28,7 @@ public abstract class Menu {
             }
 
         } while (error);
+        commandList.get(option).execute();
     }
 
     protected void addCommand(Command command) {
