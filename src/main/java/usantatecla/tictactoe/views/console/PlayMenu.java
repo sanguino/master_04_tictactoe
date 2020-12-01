@@ -7,6 +7,7 @@ public class PlayMenu extends Menu {
 
     PlayMenu(PlayController playController) {
         this.addCommand(new UndoCommand(playController));
+        this.addCommand(new RedoCommand(playController));
     }
 
 }
