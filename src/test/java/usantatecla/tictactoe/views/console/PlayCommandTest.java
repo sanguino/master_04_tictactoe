@@ -47,5 +47,16 @@ public class PlayCommandTest {
         verify(this.playController).put(coordinate);
     }
 
+    @Test
+    void testGivenPlayCommandWhenExecuteMoveThenGamePutCoordinate() {
+        Coordinate origin = new Coordinate(0, 0);
+        Coordinate target = new Coordinate(0, 1);
+        when(this.playController.move(any(Coordinate.class), any(Coordinate.class))).thenReturn(Error.NULL);
+        when(this.playController.isBoardComplete()).thenReturn(true);
+        doReturn(origin).doReturn(target).when(this.playCommand).readCoordinate(anyString());
+        this.playCommand.execute();
+        verify(this.playController).move(origin, target);
+    }
+
 
 }

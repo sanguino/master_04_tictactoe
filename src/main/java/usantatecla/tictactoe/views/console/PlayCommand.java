@@ -15,6 +15,8 @@ class PlayCommand extends Command {
     protected void execute() {
         if (!playController.isBoardComplete()) {
             this.put();
+        } else {
+            this.move();
         }
     }
 
@@ -30,6 +32,10 @@ class PlayCommand extends Command {
             error = this.playController.put(coordinate);
             new ErrorView(error).writeln();
         } while (!error.isNull());
+    }
+
+    private void move() {
+
     }
 
     @Override
