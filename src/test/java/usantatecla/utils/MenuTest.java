@@ -17,7 +17,6 @@ class MenuConcrete extends Menu {
 }
 
 class CommandConcrete extends Command {
-
     protected CommandConcrete(String title) {
         super(title);
     }
@@ -30,6 +29,21 @@ class CommandConcrete extends Command {
     @Override
     protected boolean isActive() {
         return true;
+    }
+}
+
+class CommandConcreteInactive extends Command {
+    protected CommandConcreteInactive(String title) {
+        super(title);
+    }
+
+    @Override
+    protected void execute() {
+    }
+
+    @Override
+    protected boolean isActive() {
+        return false;
     }
 }
 
@@ -60,12 +74,26 @@ public class MenuTest {
     }
 
     @Test
-    void testGivenMenuWhenExecuteThenVerifyWritelnTwoTimes() {
+    void testGivenMenuWhenExecuteThenVerifyWritelnFourTimes() {
         try (MockedStatic console = mockStatic(Console.class)) {
             console.when(Console::getInstance).thenReturn(this.console);
             when(this.console.readInt(anyString())).thenReturn(5).thenReturn(1);
             this.menu.addCommand(new CommandConcrete("title"));
             this.menu.addCommand(new CommandConcrete("title2"));
+            this.menu.execute();
+            verify(this.console, times(2)).writeln();
+            verify(this.console, times(4)).writeln(anyString());
+        }
+    }
+
+    @Test
+    void testGivenMenuWhenExecuteWithOneInactiveCommandThenVerifyWritelnFourTimes() {
+        try (MockedStatic console = mockStatic(Console.class)) {
+            console.when(Console::getInstance).thenReturn(this.console);
+            when(this.console.readInt(anyString())).thenReturn(5).thenReturn(1);
+            this.menu.addCommand(new CommandConcrete("title"));
+            this.menu.addCommand(new CommandConcrete("title2"));
+            this.menu.addCommand(new CommandConcreteInactive("title innactive"));
             this.menu.execute();
             verify(this.console, times(2)).writeln();
             verify(this.console, times(4)).writeln(anyString());
