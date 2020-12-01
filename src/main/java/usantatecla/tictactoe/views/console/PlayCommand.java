@@ -18,6 +18,14 @@ class PlayCommand extends Command {
         } else {
             this.move();
         }
+        if (playController.isTicTacToe()) {
+            this.showWinner();
+        }
+    }
+
+    void showWinner() {
+        new TokenView(playController.getToken()).write();
+        Message.PLAYER_WIN.writeln();
     }
 
     Coordinate readCoordinate(String message) {
