@@ -50,10 +50,11 @@ public class MenuTest {
     void testGivenMenuWhenExecuteThenVerifyWriteln() {
         try (MockedStatic console = mockStatic(Console.class)) {
             console.when(Console::getInstance).thenReturn(this.console);
+            when(this.console.readInt(anyString())).thenReturn(5).thenReturn(1);
             this.menu.addCommand(new CommandConcrete("title"));
             this.menu.execute();
-            verify(this.console).writeln();
-            verify(this.console).writeln(anyString());
+            verify(this.console, times(2)).writeln();
+            verify(this.console, times(2)).writeln(anyString());
         }
     }
 }
