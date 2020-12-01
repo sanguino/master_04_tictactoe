@@ -42,7 +42,7 @@ public class PlayCommandTest {
         Coordinate coordinate = new Coordinate(0, 0);
         when(this.playController.put(any(Coordinate.class))).thenReturn(Error.NULL);
         when(this.playController.isBoardComplete()).thenReturn(false);
-        doReturn(coordinate).when(this.playCommand).readCoordinate();
+        doReturn(coordinate).when(this.playCommand).readCoordinate(anyString());
         this.playCommand.execute();
         verify(this.playController).put(coordinate);
     }

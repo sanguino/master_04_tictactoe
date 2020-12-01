@@ -18,15 +18,15 @@ class PlayCommand extends Command {
         }
     }
 
-    Coordinate readCoordinate() {
-        return new CoordinateView().read(Message.COORDINATE_TO_PUT.toString());
+    Coordinate readCoordinate(String message) {
+        return new CoordinateView().read(message);
     }
 
     private void put() {
         Coordinate coordinate;
         Error error;
         do {
-            coordinate = this.readCoordinate();
+            coordinate = this.readCoordinate(Message.COORDINATE_TO_PUT.toString());
             error = this.playController.put(coordinate);
             new ErrorView(error).writeln();
         } while (!error.isNull());
