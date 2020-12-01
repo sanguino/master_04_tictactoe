@@ -11,6 +11,7 @@ public enum Message {
 	VERTICAL_LINE_RIGHT(""), 
 	ENTER_COORDINATE_TO_PUT("Enter a coordinate to put a token:"),
 	ENTER_COORDINATE_TO_REMOVE("Enter a coordinate to remove a token:"),
+	ACTION_COMMAND("Do a action"),
 	UNDO_COMMAND("Undo previous action"),
 	REDO_COMMAND("Redo previous action"),
 	COORDINATE_TO_PUT("Coordinate to put"),
