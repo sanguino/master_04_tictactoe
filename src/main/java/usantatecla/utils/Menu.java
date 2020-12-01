@@ -13,22 +13,28 @@ public abstract class Menu {
     }
 
     public void execute() {
+        ArrayList<Command> commands = new ArrayList<>();
+        for (int i = 0; i < this.commandList.size(); i++) {
+            if (this.commandList.get(i).isActive()) {
+                commands.add(this.commandList.get(i));
+            }
+        }
         int option;
         Console console = Console.getInstance();
         boolean error;
         do {
             error = false;
             console.writeln();
-            for (int i = 0; i < commandList.size(); i++) {
-                console.writeln((i + 1) + ") " + commandList.get(i).getTitle());
+            for (int i = 0; i < commands.size(); i++) {
+                console.writeln((i + 1) + ") " + commands.get(i).getTitle());
             }
-            option = console.readInt(Menu.OPTION.replace("#size", "" + commandList.size())) - 1;
-            if (!new ClosedInterval(0, commandList.size() - 1).isIncluded(option)) {
+            option = console.readInt(Menu.OPTION.replace("#size", "" + commands.size())) - 1;
+            if (!new ClosedInterval(0, commands.size() - 1).isIncluded(option)) {
                 error = true;
             }
 
         } while (error);
-        commandList.get(option).execute();
+        commands.get(option).execute();
     }
 
     protected void addCommand(Command command) {
