@@ -6,6 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
@@ -67,6 +68,18 @@ public class MenuTest {
             this.menu.execute();
             verify(this.console, times(2)).writeln();
             verify(this.console, times(2)).writeln(anyString());
+        }
+    }
+
+    @Test
+    void testGivenMenuWhenExecuteThenVerifyExecute() {
+        try (MockedStatic console = mockStatic(Console.class)) {
+            console.when(Console::getInstance).thenReturn(this.console);
+            when(this.console.readInt(anyString())).thenReturn(1);
+            Command command = Mockito.spy(new CommandConcrete("title"));
+            this.menu.addCommand(command);
+            this.menu.execute();
+            verify(command).execute();
         }
     }
 }
