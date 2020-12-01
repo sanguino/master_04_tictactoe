@@ -13,7 +13,9 @@ class PlayCommand extends Command {
 
     @Override
     protected void execute() {
-        this.put();
+        if (!playController.isBoardComplete()) {
+            this.put();
+        }
     }
 
     Coordinate readCoordinate() {
