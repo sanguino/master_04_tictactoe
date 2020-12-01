@@ -6,7 +6,7 @@ Todo los commits se han subido a la rama https://github.com/sanguino/master_04_t
 
 He dejado unos tags con los principales hitos:
 
-DoubleDispatch: https://github.com/sanguino/master_04_tictactoe/releases/tag/DoubleDispatch
-Composite: https://github.com/sanguino/master_04_tictactoe/releases/tag/Composite
-MementoAndSession: https://github.com/sanguino/master_04_tictactoe/releases/tag/MementoAndSession
-PlayMenuWithCommands: https://github.com/sanguino/master_04_tictactoe/releases/tag/PlayMenuWithCommands
+* DoubleDispatch: https://github.com/sanguino/master_04_tictactoe/releases/tag/DoubleDispatch
+* Composite: https://github.com/sanguino/master_04_tictactoe/releases/tag/Composite
+* MementoAndSession: https://github.com/sanguino/master_04_tictactoe/releases/tag/MementoAndSession
+* PlayMenuWithCommands: https://github.com/sanguino/master_04_tictactoe/releases/tag/PlayMenuWithCommands
