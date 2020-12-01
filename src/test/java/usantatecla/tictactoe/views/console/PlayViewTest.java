@@ -55,37 +55,26 @@ public class PlayViewTest {
     @Test
     void testGivenNewPlayViewWhenMachinePlayerPutCoordinateThenGamePutCoordinate() {
         try (MockedStatic console = mockStatic(Console.class)) {
-            Coordinate coordinate = new Coordinate(0, 0);
             when(this.playController.isBoardComplete()).thenReturn(false);
             when(this.playController.isUser()).thenReturn(false);
-            when(this.playView.createRandomCoordinate()).thenReturn(coordinate);
             when(this.playController.put(any(Coordinate.class))).thenReturn(Error.NULL);
             when(this.playController.getToken(any(Coordinate.class))).thenReturn(Token.X);
-            when(this.playController.isTicTacToe()).thenReturn(true);
-            when(this.playController.getToken()).thenReturn(Token.X);
             console.when(Console::getInstance).thenReturn(this.console);
             this.playView.interact(this.playController);
-            verify(this.playController).put(coordinate);
-            verify(this.console).writeln(Message.PLAYER_WIN.toString());
+            verify(this.playController).put(any(Coordinate.class));
         }
     }
 
     @Test
     void testGivenNewPlayViewWhenMachinePlayerMoveOriginToTargetThenGameMoveOriginToTarget() {
         try (MockedStatic console = mockStatic(Console.class)) {
-            Coordinate origin = new Coordinate(0, 0);
-            Coordinate target = new Coordinate(0, 0);
             when(this.playController.isBoardComplete()).thenReturn(true);
             when(this.playController.isUser()).thenReturn(false);
-            when(this.playView.createRandomCoordinate()).thenReturn(origin, target);
             when(this.playController.move(any(Coordinate.class), any(Coordinate.class))).thenReturn(Error.NULL);
             when(this.playController.getToken(any(Coordinate.class))).thenReturn(Token.X);
-            when(this.playController.isTicTacToe()).thenReturn(true);
-            when(this.playController.getToken()).thenReturn(Token.X);
             console.when(Console::getInstance).thenReturn(this.console);
             this.playView.interact(this.playController);
-            verify(this.playController).move(origin, target);
-            verify(this.console).writeln(Message.PLAYER_WIN.toString());
+            verify(this.playController).move(any(Coordinate.class), any(Coordinate.class));
         }
     }
 
