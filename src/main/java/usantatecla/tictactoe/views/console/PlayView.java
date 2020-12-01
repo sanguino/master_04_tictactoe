@@ -11,17 +11,19 @@ class PlayView {
 
     void interact(PlayController playController) {
         this.playController = playController;
-        do {
-            //this.playController.next();
-            if (!this.playController.isBoardComplete()) {
-                this.put();
-            } else {
-                this.move();
-            }
-            new GameView(this.playController).write();
-        } while (!this.playController.isTicTacToe());
-        new TokenView(this.playController.getToken()).write();
-        Message.PLAYER_WIN.writeln();
+        if (playController.isUser()) {
+            this.showPlayMenu();
+        }
+
+        this.showGameView();
+    }
+
+    void showGameView() {
+        new GameView(this.playController).write();
+    }
+
+    void showPlayMenu() {
+        new PlayMenu(this.playController).execute();
     }
 
     private void put() {

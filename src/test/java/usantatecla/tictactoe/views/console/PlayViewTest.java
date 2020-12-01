@@ -41,18 +41,15 @@ public class PlayViewTest {
     @Test
     void testGivenNewPlayViewWhenUserPlayerPutCoordinateThenGamePutCoordinate() {
         try (MockedStatic console = mockStatic(Console.class)) {
-            when(this.playController.isBoardComplete()).thenReturn(false);
-            when(this.playController.isUser()).thenReturn(true);
-            when(this.console.readInt(anyString())).thenReturn(1);
-            when(this.playController.put(any(Coordinate.class))).thenReturn(Error.NULL);
-            when(this.playController.getToken(any(Coordinate.class))).thenReturn(Token.X);
-            when(this.playController.isTicTacToe()).thenReturn(true);
-            when(this.playController.getToken()).thenReturn(Token.X);
             console.when(Console::getInstance).thenReturn(this.console);
+            when(this.playController.isUser()).thenReturn(true);
+            doNothing().when(this.playView).showPlayMenu();
+            doNothing().when(this.playView).showGameView();
             this.playView.interact(this.playController);
-            verify(this.playController).put(new Coordinate(0, 0));
-            verify(this.console).writeln(Message.PLAYER_WIN.getMessage());
+            verify(this.playView).showPlayMenu();
+            verify(this.playView).showGameView();
         }
+
     }
 
     @Test
@@ -69,23 +66,6 @@ public class PlayViewTest {
             console.when(Console::getInstance).thenReturn(this.console);
             this.playView.interact(this.playController);
             verify(this.playController).put(coordinate);
-            verify(this.console).writeln(Message.PLAYER_WIN.toString());
-        }
-    }
-
-    @Test
-    void testGivenNewPlayViewWhenUserPlayerMoveOriginToTargetThenGameMoveOriginToTarget() {
-        try (MockedStatic console = mockStatic(Console.class)) {
-            when(this.playController.isBoardComplete()).thenReturn(true);
-            when(this.playController.isUser()).thenReturn(true);
-            when(this.console.readInt(anyString())).thenReturn(1, 1, 2, 2);
-            when(this.playController.move(any(Coordinate.class), any(Coordinate.class))).thenReturn(Error.NULL);
-            when(this.playController.getToken(any(Coordinate.class))).thenReturn(Token.X);
-            when(this.playController.isTicTacToe()).thenReturn(true);
-            when(this.playController.getToken()).thenReturn(Token.X);
-            console.when(Console::getInstance).thenReturn(this.console);
-            this.playView.interact(this.playController);
-            verify(this.playController).move(new Coordinate(0, 0), new Coordinate(1, 1));
             verify(this.console).writeln(Message.PLAYER_WIN.toString());
         }
     }
