@@ -15,6 +15,23 @@ class MenuConcrete extends Menu {
 
 }
 
+class CommandConcrete extends Command {
+
+    protected CommandConcrete(String title) {
+        super(title);
+    }
+
+    @Override
+    protected void execute() {
+
+    }
+
+    @Override
+    protected boolean isActive() {
+        return false;
+    }
+}
+
 @ExtendWith(MockitoExtension.class)
 public class MenuTest {
 
@@ -30,11 +47,13 @@ public class MenuTest {
     }
 
     @Test
-    void testGivenNewCoordinateViewWhenReadCoordinateThenReturnCoordinate() {
+    void testGivenMenuWhenExecuteThenVerifyWriteln() {
         try (MockedStatic console = mockStatic(Console.class)) {
             console.when(Console::getInstance).thenReturn(this.console);
+            this.menu.addCommand(new CommandConcrete("title"));
             this.menu.execute();
             verify(this.console).writeln();
+            verify(this.console).writeln(anyString());
         }
     }
 }

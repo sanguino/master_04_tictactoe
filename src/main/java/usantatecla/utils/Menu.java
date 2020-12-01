@@ -15,4 +15,8 @@ public abstract class Menu {
 
         } while (error);
     }
+
+    protected void addCommand(Command command) {
+
+    }
 }
