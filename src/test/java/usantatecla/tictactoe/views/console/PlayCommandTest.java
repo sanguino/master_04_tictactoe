@@ -5,10 +5,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import usantatecla.tictactoe.controllers.PlayController;
+import usantatecla.tictactoe.models.Coordinate;
+import usantatecla.tictactoe.types.Error;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,5 +34,14 @@ public class PlayCommandTest {
     void testGivenPlayCommandWhenIsActiveThenTrue() {
         assertTrue(playCommand.isActive());
     }
+
+    @Test
+    void testGivenPlayCommandWhenExecutePutThenGamePutCoordinate() {
+        Coordinate coordinate = new Coordinate(0, 0);
+        when(this.playController.put(any(Coordinate.class))).thenReturn(Error.NULL);
+        this.playCommand.execute();
+        verify(this.playController).put(coordinate);
+    }
+
 
 }
