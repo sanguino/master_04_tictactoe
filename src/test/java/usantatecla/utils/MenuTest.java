@@ -47,7 +47,19 @@ public class MenuTest {
     }
 
     @Test
-    void testGivenMenuWhenExecuteThenVerifyWriteln() {
+    void testGivenMenuWhenExecuteThenVerifyWritelnOneTime() {
+        try (MockedStatic console = mockStatic(Console.class)) {
+            console.when(Console::getInstance).thenReturn(this.console);
+            when(this.console.readInt(anyString())).thenReturn(1);
+            this.menu.addCommand(new CommandConcrete("title"));
+            this.menu.execute();
+            verify(this.console).writeln();
+            verify(this.console).writeln(anyString());
+        }
+    }
+
+    @Test
+    void testGivenMenuWhenExecuteThenVerifyWritelnTwoTimes() {
         try (MockedStatic console = mockStatic(Console.class)) {
             console.when(Console::getInstance).thenReturn(this.console);
             when(this.console.readInt(anyString())).thenReturn(5).thenReturn(1);
