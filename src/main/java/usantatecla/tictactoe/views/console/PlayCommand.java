@@ -35,7 +35,15 @@ class PlayCommand extends Command {
     }
 
     private void move() {
-
+        Coordinate origin;
+        Coordinate target;
+        Error error;
+        do {
+            origin = this.readCoordinate(Message.COORDINATE_TO_REMOVE.toString());
+            target = this.readCoordinate(Message.COORDINATE_TO_MOVE.toString());
+            error = this.playController.move(origin, target);
+            new ErrorView(error).writeln();
+        } while (!error.isNull());
     }
 
     @Override
