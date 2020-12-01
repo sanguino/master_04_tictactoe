@@ -8,6 +8,11 @@ public abstract class Menu {
 
     public void execute() {
         Console console = Console.getInstance();
+        boolean error;
+        do {
+            error = false;
+            console.writeln();
 
+        } while (error);
     }
 }
