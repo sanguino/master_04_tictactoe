@@ -13,7 +13,21 @@ class PlayCommand extends Command {
 
     @Override
     protected void execute() {
+        this.put();
+    }
 
+    Coordinate readCoordinate() {
+        return new CoordinateView().read(Message.COORDINATE_TO_PUT.toString());
+    }
+
+    private void put() {
+        Coordinate coordinate;
+        Error error;
+        do {
+            coordinate = this.readCoordinate();
+            error = this.playController.put(coordinate);
+            new ErrorView(error).writeln();
+        } while (!error.isNull());
     }
 
     @Override

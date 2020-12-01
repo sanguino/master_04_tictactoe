@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import usantatecla.tictactoe.controllers.PlayController;
 import usantatecla.tictactoe.models.Coordinate;
+import usantatecla.tictactoe.models.Token;
 import usantatecla.tictactoe.types.Error;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,6 +29,7 @@ public class PlayCommandTest {
     @BeforeEach
     void before() {
         openMocks(this);
+        this.playCommand = spy(this.playCommand);
     }
 
     @Test
@@ -39,6 +41,7 @@ public class PlayCommandTest {
     void testGivenPlayCommandWhenExecutePutThenGamePutCoordinate() {
         Coordinate coordinate = new Coordinate(0, 0);
         when(this.playController.put(any(Coordinate.class))).thenReturn(Error.NULL);
+        doReturn(coordinate).when(this.playCommand).readCoordinate();
         this.playCommand.execute();
         verify(this.playController).put(coordinate);
     }
